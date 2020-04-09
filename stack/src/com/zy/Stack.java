@@ -11,7 +11,7 @@ import java.lang.reflect.Array;
  * @author zygui
  * @date 2020/4/9 20:46
  */
-public class Stack<E> extends ArrayList<E> {
+public class Stack<E>{
     /*
         因为使用了继承ArrayList, 所以栈就拥有了动态数组的所有方法,这样明显是不合理的~(官方的栈是继承Vector(安全的ArrayList))
         可以使用和ArrayList变为组合关系
