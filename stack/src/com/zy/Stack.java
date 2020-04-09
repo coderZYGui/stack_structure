@@ -1,6 +1,9 @@
 package com.zy;
 
 import com.zy.list.ArrayList;
+import com.zy.list.List;
+
+import java.lang.reflect.Array;
 
 /**
  * Description: 自定义栈结构
@@ -10,33 +13,46 @@ import com.zy.list.ArrayList;
  */
 public class Stack<E> extends ArrayList<E> {
     /*
-        因为栈是线性结构,许多特点和动态数组和链表是相同的, 这里可以继承ArrayList来实现栈;
+        因为使用了继承ArrayList, 所以栈就拥有了动态数组的所有方法,这样明显是不合理的~(官方的栈是继承Vector(安全的ArrayList))
+        可以使用和ArrayList变为组合关系
      */
-    // 接口设计(size,isEmpty调用父类的就可以了)
+
+    private List<E> list = new ArrayList<>();
+
+    public int size() {
+        return list.size();
+    }
+
+    public boolean isEmpty() {
+        return list.inEmpty();
+    }
 
     /**
      * 压入元素
+     *
      * @param element
      */
     public void push(E element) {
         // 相当于往栈的栈顶添加元素
-        add(element);
+        list.add(element);
     }
 
     /**
      * 弹出元素
+     *
      * @return
      */
     public E pop() {
-        return remove(size - 1);
+        return list.remove(list.size() - 1);
     }
 
     /**
-     * 获取栈顶元素
+     * 获取栈顶元素, 和java.util.Stack中的peek()方法相同
+     *
      * @return
      */
     public E top() {
-        return get(size - 1);
+        return list.get(list.size() - 1);
     }
 
 }
