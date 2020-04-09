@@ -27,6 +27,10 @@ public class Stack<E> extends ArrayList<E> {
         return list.inEmpty();
     }
 
+    public void clear() {
+        list.clear();
+    }
+
     /**
      * 压入元素
      *
